@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react'
 
+// Tally form embed component
+
 export default function Home() {
   useEffect(() => {
     // Load Tally embed script
