@@ -10,11 +10,12 @@ export default function Home() {
       const w = 'https://tally.so/widgets/embed.js'
       
       const v = function () {
-        if (typeof Tally !== 'undefined') {
-          Tally.loadEmbeds()
+        if (typeof (window as any).Tally !== 'undefined') {
+          (window as any).Tally.loadEmbeds()
         } else {
-          d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((e: HTMLIFrameElement) => {
-            e.src = e.dataset.tallySrc || ''
+          d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((e) => {
+            const iframe = e as HTMLIFrameElement
+            iframe.src = iframe.dataset.tallySrc || ''
           })
         }
       }
